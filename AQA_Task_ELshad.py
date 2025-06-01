@@ -1,12 +1,10 @@
 def number_check():
     try:
-        number = int(input("Enter a number: "))
-        if number > 7:
+        user_input = int(input("Enter a number: "))
+        if user_input > 7:
             print("Hello")
-        else:
-            print("Number is not greater than 7.")
     except ValueError:
-        print("Invalid input. Please enter an integer.")
+        print("Please enter a valid number.")
 
 def name_check():
     name = input("Enter a name: ")
@@ -15,23 +13,25 @@ def name_check():
     else:
         print("There is no such name")
 
-def multiples_of_three():
+def filter_multiples_of_three():
     try:
-        numbers = list(map(int, input("Enter numbers separated by space: ").split()))
-        result = [num for num in numbers if num % 3 == 0]
-        print("Multiples of 3 in the array:", result)
+        raw_input = input("Enter numbers separated by spaces: ")
+        numbers = list(map(int, raw_input.split()))
+        for num in numbers:
+            if num % 3 == 0:
+                print(num)
     except ValueError:
-        print("Invalid input. Please enter a list of integers.")
+        print("Please enter valid integers only")
 
 def main():
-    print("=== Number Check ===")
+    print("Task 1: Number check")
     number_check()
     
-    print("\n=== Name Check ===")
+    print("\nTask 2: Name check")
     name_check()
     
-    print("\n=== Multiples of 3 ===")
-    multiples_of_three()
+    print("\nTask 3: Filter multiples of 3")
+    filter_multiples_of_three()
 
 if __name__ == "__main__":
     main()
